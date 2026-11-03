@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#238b58">
+  <title>RPM™ 2.0 — Retropixel Messenger</title>
+  <link rel="icon" type="image/png" href="assets/RPM_logo.png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="rpm-page">
+<div class="rpm-app" id="rpmApp">
+  <header class="app-topbar">
+    <img src="assets/RPM_logo.png" alt="RPM" class="topbar-logo">
+    <div class="brand-block"><div class="app-brand">Retropixel Messenger™</div><div class="app-version">Versão 2.0</div></div>
+    <div class="top-spacer"></div>
+    <button class="gloss-button" id="logoutBtn" type="button">Sair</button>
+  </header>
+
+  <section class="app-toolbar">
+    <div class="profile-area">
+      <img class="avatar" src="assets/avatar.png" alt="Seu avatar">
+      <div class="profile-copy">
+        <div class="profile-email" id="myEmail">Carregando conta...</div>
+        <div class="profile-status"><span class="status-dot" id="myStatusDot"></span><span id="myStatusText">Conectando...</span></div>
+      </div>
+    </div>
+    <div class="toolbar-actions">
+      <button class="gloss-button desktop-add" id="addContactBtn" type="button">＋ Adicionar contato</button>
+      <button class="gloss-button" id="refreshBtn" type="button">↻ Atualizar</button>
+    </div>
+  </section>
+
+  <main class="app-main">
+    <aside class="contacts-panel">
+      <div class="panel-heading">Contatos</div>
+      <div class="search-wrap"><input id="contactSearch" type="search" placeholder="Pesquisar contatos..." autocomplete="off" aria-label="Pesquisar contatos"></div>
+      <div class="contacts-list" id="contactsList"><div class="loading-state">Carregando contatos...</div></div>
+      <div class="contacts-bottom"><button class="gloss-button add-contact-mobile" id="addContactMobileBtn" type="button">＋ Adicionar contato</button></div>
+    </aside>
+
+    <section class="chat-panel" aria-label="Conversa">
+      <div class="chat-header">
+        <button class="gloss-button mobile-back" id="backToContactsBtn" type="button">‹ Voltar</button>
+        <img class="contact-avatar chat-avatar" id="chatAvatar" src="assets/avatar.png" alt="" hidden>
+        <div class="chat-heading-copy"><h2 id="chatTitle">Retropixel Messenger™</h2><small id="chatSubtitle">Selecione um contato para conversar.</small></div>
+        <div class="top-spacer"></div>
+        <button class="gloss-button nudge-button" id="nudgeBtn" type="button" disabled>🔔 Ding-a-ding!</button>
+      </div>
+
+      <div class="chat-empty" id="chatEmpty">
+        <div class="welcome-card">
+          <img src="assets/RPM_logo.png" alt="RPM">
+          <h2>Bem-vindo ao RPM™ 2.0!</h2>
+          <p>Selecione um contato para começar uma conversa.</p>
+        </div>
+      </div>
+      <div class="messages" id="messages" hidden></div>
+
+      <form class="chat-composer" id="messageForm">
+        <textarea class="message-input" id="messageInput" placeholder="Digite sua mensagem..." rows="2" disabled aria-label="Mensagem"></textarea>
+        <div class="composer-actions"><span class="chat-feedback" id="chatFeedback">Suas conversas em tempo real.</span><button class="send-button" id="sendBtn" type="submit" disabled>Enviar</button></div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="app-footer" id="rpmFooter">© Retropixel™, 2025-2026. Todos os direitos reservados.</footer>
+</div>
+
+<div class="modal-backdrop" id="addContactModal" hidden>
+  <form class="modal" id="addContactForm">
+    <h3>Adicionar contato</h3>
+    <p>Digite o e-mail associado à conta do seu contato.</p>
+    <input class="add-contact-input" id="newContactEmail" type="email" placeholder="email@exemplo.com" autocomplete="email" required>
+    <div class="form-message" id="addContactMessage" role="status" aria-live="polite"></div>
+    <div class="modal-actions"><button class="gloss-button" id="cancelAddContactBtn" type="button">Cancelar</button><button class="send-button" id="confirmAddContactBtn" type="submit">Adicionar</button></div>
+  </form>
+</div>
+
+<div class="notification-area" aria-live="polite">
+  <div id="nudgeNotification" class="rpm-notification" hidden>
+    <img src="assets/RPM_logo.png" alt="">
+    <div class="notification-content"><strong>Ding-a-ding!</strong><span id="nudgeNotificationText"></span></div>
+    <span id="nudgeNotificationCount" class="notification-count" hidden></span>
+    <button type="button" data-dismiss="nudge" aria-label="Fechar">×</button>
+  </div>
+  <div id="messageNotification" class="rpm-notification message-notification" hidden>
+    <img src="assets/RPM_logo.png" alt="">
+    <div class="notification-content"><strong>Nova mensagem</strong><span id="messageNotificationText"></span></div>
+    <span id="messageNotificationCount" class="notification-count" hidden></span>
+    <button type="button" data-dismiss="message" aria-label="Fechar">×</button>
+  </div>
+</div>
+
+<audio id="clickSound" src="assets/click.wav" preload="auto"></audio>
+<audio id="dingSound" src="assets/ding-a-ding.wav" preload="auto"></audio>
+
+<script>
+  const footer = document.getElementById("rpmFooter");
+  if (footer) footer.textContent = `© Retropixel™, 2025-${new Date().getFullYear()}. Todos os direitos reservados.`;
+</script>
+<script type="module" src="js/app.js"></script>
+</body>
+</html>

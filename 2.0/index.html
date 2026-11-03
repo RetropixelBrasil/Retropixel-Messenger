@@ -1,0 +1,213 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#9bd9f1">
+    <meta name="description" content="Entre no Retropixel Messenger 2.0 e converse com seus contatos.">
+
+    <title>Entrar — Retropixel Messenger™ 2.0</title>
+
+    <link rel="icon" type="image/png" href="assets/RPM_logo.png">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="aero-background">
+
+        <main class="login-window">
+
+            <!-- CABEÇALHO -->
+
+            <header class="window-header">
+
+                <div class="brand">
+                    <img src="assets/RPM_logo.png" alt="RPM Logo">
+
+                    <div class="brand-text">
+                        <span class="brand-name">Retropixel Messenger™</span>
+                        <span class="brand-version">Versão 2.0</span>
+                    </div>
+                </div>
+
+                <a href="../index.html" class="home-button" title="Página inicial">
+                    ✕
+                </a>
+
+            </header>
+
+            <!-- CONTEÚDO -->
+
+            <div class="login-content">
+
+                <section class="welcome-section">
+
+                    <div class="welcome-icon">
+                        <img src="assets/RPM_logo.png" alt="">
+                    </div>
+
+                    <h1>Conecte-se!</h1>
+
+                    <p>
+                        Converse com seus amigos, compartilhe momentos
+                        e aproveite a experiência Retropixel.
+                    </p>
+
+                    <div class="welcome-decoration">
+                        <span class="bubble bubble-one"></span>
+                        <span class="bubble bubble-two"></span>
+                        <span class="bubble bubble-three"></span>
+                    </div>
+
+                </section>
+
+                <!-- LOGIN -->
+
+                <section class="form-section">
+
+                    <div class="form-heading">
+                        <h2>Entrar</h2>
+                        <p>Use sua conta Retropixel Messenger.</p>
+                    </div>
+
+                    <form id="loginForm" autocomplete="on">
+
+                        <label for="email">Endereço de e-mail</label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="seuemail@exemplo.com"
+                            autocomplete="username"
+                            required
+                        >
+
+                        <label for="password">Senha</label>
+
+                        <div class="password-wrapper">
+
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                placeholder="Digite sua senha"
+                                autocomplete="current-password"
+                                required
+                            >
+
+                            <button
+                                type="button"
+                                id="togglePassword"
+                                class="password-toggle"
+                                aria-label="Mostrar senha"
+                                aria-pressed="false"
+                            >
+                                ◉
+                            </button>
+
+                        </div>
+
+                        <div
+                            id="authMessage"
+                            class="auth-message"
+                            role="status"
+                            aria-live="polite"
+                            hidden
+                        ></div>
+
+                        <div class="button-group">
+
+                            <button
+                                type="button"
+                                id="loginBtn"
+                                class="primary-button"
+                            >
+                                Entrar
+                            </button>
+
+                            <button
+                                type="button"
+                                id="registerBtn"
+                                class="secondary-button"
+                            >
+                                Criar conta
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                    <p class="login-note">
+                        Sua conta também funciona na versão 1.0.
+                    </p>
+
+                </section>
+
+            </div>
+
+            <!-- RODAPÉ -->
+
+            <footer class="window-footer">
+
+                <div class="footer-links">
+                    <a href="sobre.html">Sobre</a>
+                    <span>·</span>
+                    <a href="tos.html">Termos</a>
+                    <span>·</span>
+                    <a href="privacidade.html">Privacidade</a>
+                    <span>·</span>
+                    <a href="https://retropixelbrasil.github.io/Retropixel/Suporte/RPM.html"
+                       target="_blank" rel="noopener noreferrer">Ajuda</a>
+                </div>
+
+                <span class="copyright">
+                    © Retropixel™, 2025-2026.
+                </span>
+
+            </footer>
+
+        </main>
+
+        <div class="background-caption">
+            Se é retrô, é Retropixel™.
+        </div>
+
+    </div>
+
+    <!-- MOSTRAR / OCULTAR SENHA -->
+
+    <script>
+        const password = document.getElementById("password");
+        const togglePassword = document.getElementById("togglePassword");
+
+        togglePassword.addEventListener("click", () => {
+
+            const visible = password.type === "text";
+
+            password.type = visible ? "password" : "text";
+
+            togglePassword.textContent = visible ? "◉" : "◎";
+
+            togglePassword.setAttribute(
+                "aria-label",
+                visible ? "Mostrar senha" : "Ocultar senha"
+            );
+
+            togglePassword.setAttribute(
+                "aria-pressed",
+                String(!visible)
+            );
+
+        });
+    </script>
+
+    <!-- AUTENTICAÇÃO FIREBASE -->
+
+    <script type="module" src="js/login.js"></script>
+
+</body>
+</html>
