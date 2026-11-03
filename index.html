@@ -1,36 +1,50 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <link rel="icon" type="image/png" href="assets/RPM_logo.png">
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Retropixel Messenger — um mensageiro retrô para conversar com liberdade e privacidade.">
   <title>Retropixel Messenger™</title>
+  <link rel="icon" type="image/png" href="RPM_logo.png">
   <link rel="stylesheet" href="style.css">
 </head>
+<body>
+  <div class="site-shell">
+    <header class="hero">
+      <img class="main-logo" src="RPM_logo.png" alt="Retropixel Messenger" onerror="this.hidden=true">
+      <h1>Bem-vindo(a) ao Retropixel Messenger™</h1>
+      <p class="tagline">Um mensageiro que realmente te dá a liberdade de conversar com quem<br class="desktop-break">
+        você quer e ter a privacidade que você precisa. Com estilo retrô, é claro.</p>
+    </header>
 
-<body class="rp-bg">
-
-  <div class="rp-window">
-    <div class="rp-title">Retropixel Messenger™</div>
-
-    <div class="rp-content">
-
-      <div class="avatar-box">
-        <img src="assets/RPM_logo.png">
+    <main class="version-area">
+      <p class="choose-label">Escolha uma versão</p>
+      <div class="version-buttons">
+        <a class="version-button version-classic" href="1.0/index.html" aria-label="Abrir Retropixel Messenger versão 1.0">
+          <img src="RPM_logo.png" alt="" onerror="this.hidden=true">
+          <span>1.0</span>
+        </a>
+        <a class="version-button version-new" href="2.0/index.html" aria-label="Abrir Retropixel Messenger versão 2.0">
+          <img src="RPM_logo.png" alt="" onerror="this.hidden=true">
+          <span>2.0</span>
+        </a>
       </div>
+    </main>
 
-      <input id="email" type="email" placeholder="Email">
-      <input id="password" type="password" placeholder="Senha">
-
-      <button id="loginBtn">Entrar</button>
-      <button id="registerBtn" class="secondary">Criar conta</button>
-
-    </div>
+    <footer class="site-footer">
+      <nav aria-label="Links do site">
+        <a href="sobre.html">Sobre o RPM™</a>
+        <span aria-hidden="true">|</span>
+        <a href="termos.html">Termos</a>
+        <span aria-hidden="true">|</span>
+        <a href="privacidade.html">Privacidade</a>
+        <span aria-hidden="true">|</span>
+        <a href="https://retropixelbrasil.github.io/Retropixel/Suporte/RPM.html" target="_blank" rel="noopener noreferrer">Ajuda</a>
+        <span aria-hidden="true">|</span>
+        <a href="http://www.retropixel.com.br" target="_blank" rel="noopener noreferrer">Retropixel™</a>
+      </nav>
+      <p class="copyright">© Retropixel™, 2025-2026. Todos os direitos reservados.</p>
+    </footer>
   </div>
-
-  <!-- 🔊 ÁUDIO -->
-  <audio id="clickSound" src="assets/click.wav" preload="auto"></audio>
-
-  <script type="module" src="app.js"></script>
-
 </body>
 </html>
